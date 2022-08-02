@@ -44,7 +44,7 @@ print('# length:           ', args.len)
 samples = ""
 
 # Add some random samples at the start
-for i in range(random.randrange(32, 64)):
+for i in range(random.randrange(512, 1024)):
 	samples = samples + str(random.randrange(0,2))
 
 # Add the preamble
@@ -55,14 +55,14 @@ samples = addBytes(samples, args.address, int(args.samplesPerSymbol))
 
 # Add the payload
 payload = ""
-for i in range(int(args.len)):
+for i in range(int(args.len)*2):
 	payload = payload + "%0.1X" % random.randrange(0,16)
 
 print("# payload:          ",payload)
 samples = addBytes(samples, payload, int(args.samplesPerSymbol))
 
 # Add some random samples at the end
-for i in range(random.randrange(32, 64)):
+for i in range(random.randrange(512, 1024)):
 	samples = samples + str(random.randrange(0,2))
 
 print(samples)
